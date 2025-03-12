@@ -1,13 +1,16 @@
-import { useNavigation } from "expo-router";
-import { useEffect } from "react";
-import LoginScreen from "../screens/Auth/LoginScreen";
+import { createStackNavigator } from '@react-navigation/stack';
+import LoginScreen from '../screens/Auth/LoginScreen';
+
+const Stack = createStackNavigator();
 
 export default function Index() {
-  const navigation = useNavigation();
-
-  useEffect(() => {
-    navigation.setOptions({ title: "E.P.G.M - B.P.A.M" });
-  }, [navigation]);
-
-  return <LoginScreen />;
+  return (
+    <Stack.Navigator>
+      <Stack.Screen 
+        name="Login" 
+        component={LoginScreen} 
+        options={{ title: 'E.P.G.M - B.P.A.M' }} 
+      />
+    </Stack.Navigator>
+  );
 }
