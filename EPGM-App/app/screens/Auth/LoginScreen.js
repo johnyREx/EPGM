@@ -1,7 +1,9 @@
+import { useNavigation } from 'expo-router';
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
 const LoginScreen = ({ navigation }) => {
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -11,6 +13,7 @@ const LoginScreen = ({ navigation }) => {
       return;
     }
     console.log('Logging in with:', email, password);
+    navigation.navigate('Profile'); // Added Navigate to profile after Login
   };
 
   return (
